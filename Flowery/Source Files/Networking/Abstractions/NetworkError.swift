@@ -1,6 +1,6 @@
 //
 //  NetworkError.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import Foundation

@@ -1,6 +1,6 @@
 //
 //  DefaultImageCache.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import UIKit

@@ -1,6 +1,6 @@
 //
 //  PopularProductsResult.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import Foundation

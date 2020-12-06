@@ -1,6 +1,6 @@
 //
 //  ProductsNetworkController.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import Foundation

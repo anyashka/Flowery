@@ -1,6 +1,6 @@
 //
 //  NetworkingController.swift
-//  NetworkingKit
+//  Flowery
 //
 //  Copyright © 2020 Anna-Mariia Shkarlinska. All rights reserved.
 //

@@ -1,6 +1,6 @@
 //
 //  DefaultImageDownloader.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import UIKit

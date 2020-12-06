@@ -1,6 +1,6 @@
 //
 //  EmptyResponse.swift
-//  NetworkingKit
+//  Flowery
 //
 
 import Foundation
