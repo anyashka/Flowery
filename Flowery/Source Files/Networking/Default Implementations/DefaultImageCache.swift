@@ -10,8 +10,6 @@ final class DefaultImageCache: ImageCache {
 
     private let cache = NSCache<NSURL, UIImage>()
 
-    init() {} // TODO
-
     /// - SeeAlso: `ImageCache.setImage`
     func setImage(_ image: UIImage, for URL: URL) {
         cache.setObject(image, forKey: URL as NSURL)

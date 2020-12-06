@@ -44,7 +44,8 @@ extension ProductAttributes: Decodable {
         name = try container.decode(String.self, forKey: .name)
         collectionName = try container.decode(String.self, forKey: .collectionName)
         let priceData = try container.decode([PriceData].self, forKey: .priceData)
-        let firstData = priceData.first! // TODO
+        // For the purpose of test app using only first element of price date and using a force unwrap.
+        let firstData = priceData.first!
         // For the price conversions it would be the best to use a separate object instead of simply dividing by 100.
         // For the purpose of the testing app the easiest way was chosen.
         fullPrice = firstData.price_pennies / 100

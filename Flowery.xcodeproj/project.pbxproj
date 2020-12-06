@@ -185,9 +185,9 @@
 		956A423F257CE4B800106A47 /* Flowery */ = {
 			isa = PBXGroup;
 			children = (
+				956A426B257CE61D00106A47 /* Source Files */,
 				956A4263257CE61D00106A47 /* Resources */,
 				956A4269257CE61D00106A47 /* Supporting Files */,
-				956A426B257CE61D00106A47 /* Source Files */,
 				956A4291257CE61D00106A47 /* Interfaces */,
 			);
 			path = Flowery;
