@@ -46,8 +46,7 @@ final class ProductsListViewControllerTests: XCTestCase {
         let fixtureAttributes = ProductAttributes(
             name: "Flowers",
             collectionName: "collection",
-            fullPrice: 28.0,
-            discountedPrice: 28.0,
+            priceData: [PriceData(priceInPennies: 4800, priceInPenniesDiscounted: 4800)],
             currencyCode: "GPB",
             description: "Descibing",
             media: [ProductMedia(url: "url")],

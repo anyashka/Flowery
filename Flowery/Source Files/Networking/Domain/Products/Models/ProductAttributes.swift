@@ -8,11 +8,9 @@
 import Foundation
 
 struct ProductAttributes: Equatable {
-
     let name: String
     let collectionName: String
-    let fullPrice: Double
-    let discountedPrice: Double
+    let priceData: [PriceData]
     let currencyCode: String
     let description: String
     let media: [ProductMedia]
@@ -20,13 +18,17 @@ struct ProductAttributes: Equatable {
     let ratingCount: Int?
 }
 
-extension ProductAttributes: Decodable {
+extension ProductAttributes {
 
-    private struct PriceData: Decodable {
-        let price_pennies: Double
-        let price_pennies_discounted: Double
-
+    var fullPrice: Double {
+        // For the purpose of test app using only first element of price date and using a force unwrap.
+        // For the price conversions it would be the best to use a separate object instead of simply dividing by 100.
+        // For the purpose of the testing app the easiest way was chosen.
+        priceData.first!.priceInPennies / 100
     }
+}
+
+extension ProductAttributes: Decodable {
 
     private enum CodingKeys: String, CodingKey {
         case name
@@ -43,13 +45,7 @@ extension ProductAttributes: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         collectionName = try container.decode(String.self, forKey: .collectionName)
-        let priceData = try container.decode([PriceData].self, forKey: .priceData)
-        // For the purpose of test app using only first element of price date and using a force unwrap.
-        let firstData = priceData.first!
-        // For the price conversions it would be the best to use a separate object instead of simply dividing by 100.
-        // For the purpose of the testing app the easiest way was chosen.
-        fullPrice = firstData.price_pennies / 100
-        discountedPrice = firstData.price_pennies_discounted / 100
+        priceData = try container.decode([PriceData].self, forKey: .priceData)
         currencyCode = try container.decode(String.self, forKey: .currencyCode)
         description = try container.decode(String.self, forKey: .description)
         media = try container.decode([ProductMedia].self, forKey: .media)

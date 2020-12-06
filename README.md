@@ -15,7 +15,7 @@ The application consists of two screens: one with a list of all products and one
 
 ### What was additionaly added
 
-● Logging functionality​ - I strongly believe it is must-have for all applications
+● Logging functionality​ - I believe it is great addition to all applications
 
 ● Universal API logic & flow​ ones: for testing application it could be skipped but I
 wanted to show the generic approach that would be nice to use for applications that
@@ -41,6 +41,6 @@ pulling a table view.
 
 ● Environments setups​ (development, staging, production) - for production applications it's a must have.
 
-● Image Size ​- We could get smaller image sizes for the product list view. In that case fetching would be quicker.
+● Image Size ​- We could get smaller image sizes for the product list view. In that case, fetching would be quicker.
 
 ● Showing more details about products - for the test application I've used only full price, didn't show ranking, and a lot of additional information.
