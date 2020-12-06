@@ -1,5 +1,5 @@
 //
-//  FakePopularProductsViewModel.swift
+//  FakeProductsListViewModel.swift
 //  FloweryTests
 //
 
@@ -7,7 +7,7 @@ import Foundation
 
 @testable import Flowery
 
-final class FakePopularProductsViewModel: PopularProductsViewModel {
+final class FakeProductsListViewModel: ProductsListViewModel {
     
     var onProductsFetch: (([Product]) -> Void)?
 

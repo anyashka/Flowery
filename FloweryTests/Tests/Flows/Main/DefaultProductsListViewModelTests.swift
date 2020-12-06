@@ -1,5 +1,5 @@
 //
-//  DefaultPopularProductsViewModelTests.swift
+//  DefaultProductsListViewModelTests.swift
 //  FloweryTests
 //
 
@@ -8,14 +8,14 @@ import XCTest
 
 @testable import Flowery
 
-final class DefaultPopularProductsViewModelTests: XCTestCase {
+final class DefaultProductsListViewModelTests: XCTestCase {
 
-    var sut: DefaultPopularProductsViewModel!
+    var sut: DefaultProductsListViewModel!
     var fakeProductsNetworkController: FakeProductsNetworkController!
 
     override func setUp() {
         fakeProductsNetworkController = FakeProductsNetworkController()
-        sut = DefaultPopularProductsViewModel(productsNetworkController: fakeProductsNetworkController)
+        sut = DefaultProductsListViewModel(productsNetworkController: fakeProductsNetworkController)
     }
 
     func testFetchingProductsSuccessfully() {

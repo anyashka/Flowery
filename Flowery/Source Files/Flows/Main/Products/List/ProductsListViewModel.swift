@@ -1,12 +1,12 @@
 //
-//  PopularProductsViewModel.swift
+//  ProductsListViewModel.swift
 //  Flowery
 //
 
 import Foundation
 
-/// A view model for popular products list view controller.
-protocol PopularProductsViewModel: AnyObject {
+/// A view model for products list view controller.
+protocol ProductsListViewModel: AnyObject {
 
     /// Executed when new product list received.
     var onProductsFetch: (([Product]) -> Void)? { get set }
@@ -24,15 +24,15 @@ protocol PopularProductsViewModel: AnyObject {
     func imageURL(for product: Product) -> URL?
 }
 
-/// A default popular products view model.
-final class DefaultPopularProductsViewModel: PopularProductsViewModel {
+/// A default products list view model.
+final class DefaultProductsListViewModel: ProductsListViewModel {
 
     // MARK: Properties
 
-    /// - SeeAlso: `PopularProductsViewModel.onProductsFetch`
+    /// - SeeAlso: `ProductsListViewModel.onProductsFetch`
     var onProductsFetch: (([Product]) -> Void)?
 
-    /// - SeeAlso: `PopularProductsViewModel.onNetworkError`
+    /// - SeeAlso: `ProductsListViewModel.onNetworkError`
     var onNetworkError: ((NetworkError) -> Void)?
 
     // MARK: Private Properties
@@ -53,23 +53,23 @@ final class DefaultPopularProductsViewModel: PopularProductsViewModel {
 
     // MARK: Methods
 
-    /// - SeeAlso: `PopularProductsViewModel.fetchInitialPage`
+    /// - SeeAlso: `ProductsListViewModel.fetchInitialPage`
     func fetchProducts() {
         productsNetworkController.fetchProducts { [weak self] result in
             guard let self = self else { return }
-            log("PopularProductsViewModel:fetchProducts - fetching products")
+            log("ProductsListViewModel:fetchProducts - fetching products")
             switch result {
             case .success(let productResult):
                 self.currentProducts = productResult.products
                 self.onProductsFetch?(self.currentProducts)
             case .failure(let error):
-                logError("PopularProductsViewModel:fetchProducts - Failed to fetch items with error: \(error.localizedDescription)")
+                logError("ProductsListViewModel:fetchProducts - Failed to fetch items with error: \(error.localizedDescription)")
                 self.onNetworkError?(error)
             }
         }
     }
 
-    /// - SeeAlso: `PopularProductsViewModel.imageURL`
+    /// - SeeAlso: `ProductsListViewModel.imageURL`
     func imageURL(for product: Product) -> URL? {
         guard let image = product.attributes.media.first else { return nil }
         return URL(string: image.url)

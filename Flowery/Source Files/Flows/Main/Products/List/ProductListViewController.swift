@@ -1,35 +1,35 @@
 //
-//  PopularProductsViewController.swift
+//  ProductsListViewController.swift
 //  Flowery
 //
 
 import UIKit
 
-/// A delegate for popular products view controller.
-protocol PopularProductsViewControllerDelegate: AnyObject {
+/// A delegate for products list view controller.
+protocol ProductsListsViewControllerDelegate: AnyObject {
 
     /// Identifies that user has selected a product from the list.
     ///
     /// - Parameters:
-    ///     - popularProductsViewController: view controller that triggered this method.
+    ///     - ProductsListViewController: view controller that triggered this method.
     ///     - product: a chosen product by the user.
-    func popularProductsViewControllerDidSelectProduct(_ popularProductsViewController: PopularProductsViewController, product: Product)
+    func productsListViewControllerDidSelectProduct(_ ProductsListViewController: ProductsListViewController, product: Product)
 }
 
-/// A popular products list view controller.
-final class PopularProductsViewController: UIViewController {
+/// A products list view controller.
+final class ProductsListViewController: UIViewController {
 
     // MARK: Properties
 
     /// Delegate of view controller.
-    weak var delegate: PopularProductsViewControllerDelegate?
+    weak var delegate: ProductsListsViewControllerDelegate?
 
     /// A custom view for the view controller.
-    let customView: PopularProductsView
+    let customView: ProductsListsView
 
     // MARK: Private Properties
 
-    private let viewModel: PopularProductsViewModel
+    private let viewModel: ProductsListViewModel
     private let imageDownloader: ImageDownloader
     private let infoAlert: InfoAlert
     private var products: [Product] = []
@@ -39,15 +39,15 @@ final class PopularProductsViewController: UIViewController {
     /// Initializes the view controller.
     ///
     /// - Parameters:
-    ///     - viewModel: a view model for popular products.
+    ///     - viewModel: a view model for products list.
     ///     - imageDownloader: image downloader used for fetching images.
     ///     - infoAlert: an alert object to show to a user.
     init(
-        viewModel: PopularProductsViewModel,
+        viewModel: ProductsListViewModel,
         imageDownloader: ImageDownloader,
         infoAlert: InfoAlert = DefaultInfoAlert()
     ) {
-        customView = PopularProductsView()
+        customView = ProductsListsView()
         self.viewModel = viewModel
         self.imageDownloader = imageDownloader
         self.infoAlert = infoAlert
@@ -76,7 +76,7 @@ final class PopularProductsViewController: UIViewController {
 
 // MARK: UITableViewDataSource & UITableViewDelegate
 
-extension PopularProductsViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProductsListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         products.count
@@ -96,13 +96,13 @@ extension PopularProductsViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.popularProductsViewControllerDidSelectProduct(self, product: products[indexPath.row])
+        delegate?.productsListViewControllerDidSelectProduct(self, product: products[indexPath.row])
     }
 }
 
 // MARK: Implementation Details
 
-private extension PopularProductsViewController {
+private extension ProductsListViewController {
 
     func setup() {
         title = Localizable.ProductList.nagivationBarTitle

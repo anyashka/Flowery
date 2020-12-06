@@ -7,7 +7,7 @@ import UIKit
 
 // MARK: MainFlowCoordinator
 
-/// A Flow Coordinator responsible for handling popular items.
+/// A Flow Coordinator responsible for handling list of items.
 final class MainFlowCoordinator: FlowCoordinator {
 
     // MARK: Properties
@@ -54,7 +54,7 @@ final class MainFlowCoordinator: FlowCoordinator {
     func start(animated: Bool) {
         log(message: "MainFlowCoordinator:start - flow started")
         navigationController.navigationBar.setAppStyle()
-        showPopularProductsView()
+        showProductsListViewController()
     }
 }
 
@@ -67,11 +67,11 @@ extension MainFlowCoordinator: FlowCoordinatorDelegate {
     }
 }
 
-// MARK: PopularProductsViewControllerDelegate
+// MARK: ProductsListsViewControllerDelegate
 
-extension MainFlowCoordinator: PopularProductsViewControllerDelegate {
-    func popularProductsViewControllerDidSelectProduct(_ popularProductsViewController: PopularProductsViewController, product: Product) {
-        log(message: "MainFlowCoordinator:popularProductsViewControllerDidSelectProduct - selected a product with id: \(product.id)")
+extension MainFlowCoordinator: ProductsListsViewControllerDelegate {
+    func productsListViewControllerDidSelectProduct(_ ProductsListViewController: ProductsListViewController, product: Product) {
+        log(message: "MainFlowCoordinator:productsListViewControllerDidSelectProduct - selected a product with id: \(product.id)")
         showDetailsProductView(with: product)
     }
 }
@@ -80,11 +80,11 @@ extension MainFlowCoordinator: PopularProductsViewControllerDelegate {
 
 private extension MainFlowCoordinator {
 
-    func showPopularProductsView(animated: Bool = true) {
-        let viewModel = DefaultPopularProductsViewModel(
+    func showProductsListViewController(animated: Bool = true) {
+        let viewModel = DefaultProductsListViewModel(
             productsNetworkController: dependencyProvider.productsNetworkController
         )
-        let viewController = PopularProductsViewController(
+        let viewController = ProductsListViewController(
             viewModel: viewModel,
             imageDownloader: dependencyProvider.imageDownloader
         )

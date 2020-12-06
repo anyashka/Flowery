@@ -1,12 +1,12 @@
 //
-//  PopularProductsView.swift
+//  ProductsListsView.swift
 //  Flowery
 //
 
 import UIKit
 
-/// A main popular products view with a list.
-final class PopularProductsView: UIView {
+/// A main products lists view with a list.
+final class ProductsListsView: UIView {
 
     // MARK: Properties
 
@@ -19,7 +19,7 @@ final class PopularProductsView: UIView {
     /// A refresh controller for the table view.
     let refreshControl = UIRefreshControl()
 
-    /// A table view with popular products.
+    /// A table view with products.
     let tableView = makeProductsTableView()
 
     /// An empty label indicator for the table view.
@@ -48,7 +48,7 @@ final class PopularProductsView: UIView {
 
 // MARK: Setup Methods
 
-private extension PopularProductsView {
+private extension ProductsListsView {
 
     func setupView() {
         setupSubviews()
@@ -85,7 +85,7 @@ private extension PopularProductsView {
 
 // MARK: Implementation Details
 
-private extension PopularProductsView {
+private extension ProductsListsView {
 
     @objc func refreshChanged() {
         onRefresh?()

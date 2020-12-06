@@ -1,5 +1,5 @@
 //
-//  PopularProductsResult.swift
+//  ProductsResult.swift
 //  Flowery
 //
 

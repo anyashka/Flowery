@@ -1,5 +1,5 @@
 //
-//  DefaultPopularProductsViewControllerTests.swift
+//  DefaultProductsListViewControllerTests.swift
 //  FloweryTests
 //
 
@@ -8,17 +8,17 @@ import XCTest
 
 @testable import Flowery
 
-final class PopularProductsViewControllerTests: XCTestCase {
+final class ProductsListViewControllerTests: XCTestCase {
 
-    var sut: PopularProductsViewController!
-    var fakeViewModel: FakePopularProductsViewModel!
+    var sut: ProductsListViewController!
+    var fakeViewModel: FakeProductsListViewModel!
     var fakeInfoAlert: FakeInfoAlert!
 
     override func setUp() {
-        fakeViewModel = FakePopularProductsViewModel()
+        fakeViewModel = FakeProductsListViewModel()
         fakeInfoAlert = FakeInfoAlert()
         let imageDownloader = DefaultImageDownloader(networkSession: URLSession.shared, imageCache: DefaultImageCache())
-        sut = PopularProductsViewController(viewModel: fakeViewModel, imageDownloader: imageDownloader, infoAlert: fakeInfoAlert)
+        sut = ProductsListViewController(viewModel: fakeViewModel, imageDownloader: imageDownloader, infoAlert: fakeInfoAlert)
     }
 
     func testShouldFetchDataOnViewDidLoad() {

@@ -89,11 +89,11 @@ private extension ProductTableViewCell {
     func setupConstraints() {
         NSLayoutConstraint.activate(
             [
-                progressIndicator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(PopularProductsViewConstants.imageWidth) / 2),
+                progressIndicator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CGFloat(ProductsListsViewConstants.imageWidth) / 2),
                 progressIndicator.centerYAnchor.constraint(equalTo: centerYAnchor),
                 productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-                productImageView.widthAnchor.constraint(equalToConstant: CGFloat(PopularProductsViewConstants.imageWidth)),
-                productImageView.heightAnchor.constraint(equalToConstant: CGFloat(PopularProductsViewConstants.imageWidth)),
+                productImageView.widthAnchor.constraint(equalToConstant: CGFloat(ProductsListsViewConstants.imageWidth)),
+                productImageView.heightAnchor.constraint(equalToConstant: CGFloat(ProductsListsViewConstants.imageWidth)),
                 productImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
                 nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 46),
                 nameLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 12),
