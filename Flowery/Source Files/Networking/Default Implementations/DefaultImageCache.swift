@@ -1,0 +1,24 @@
+//
+//  DefaultImageCache.swift
+//  NetworkingKit
+//
+
+import UIKit
+
+/// A default image cache using NSCache.
+final class DefaultImageCache: ImageCache {
+
+    private let cache = NSCache<NSURL, UIImage>()
+
+    init() {} // TODO
+
+    /// - SeeAlso: `ImageCache.setImage`
+    func setImage(_ image: UIImage, for URL: URL) {
+        cache.setObject(image, forKey: URL as NSURL)
+    }
+
+    /// - SeeAlso: `ImageCache.getImage`
+    func getImage(for URL: URL) -> UIImage? {
+        cache.object(forKey: URL as NSURL)
+    }
+}

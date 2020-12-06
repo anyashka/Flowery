@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Flowery
+
+  Copyright © 2020 Anna-Mariia Shkarlinska. All rights reserved.
+*/
+
+"product.list.navigation-title" = "Flowery 🌸";
+"product.list.no-data" = "Oops! No data to show for now.";
+"product.detail.no-image-data" = "No images for this product";
+
+"general.ok" = "Ok";
+"general.error.something-went-wrong.title" = "Something went wrong.";
+"general.error.something-went-wrong.message" = "Please try again";
