@@ -16,7 +16,7 @@ final class ProductTableViewCell: UITableViewCell {
     // MARK: Private Properties
 
     private let productImageView = makeImageView()
-    let priceLabel = makeDefaultLabel()
+    let descriptionLabel = makeDefaultLabel()
     let nameLabel = makeDefaultLabel()
     private let progressIndicator = UIActivityIndicatorView()
     private var imageDownloader: ImageDownloader?
@@ -51,7 +51,7 @@ final class ProductTableViewCell: UITableViewCell {
         with imageURL: URL?,
         imageDownloader: ImageDownloader,
         name: String,
-        price: String
+        description: String
     ) {
         self.imageDownloader = imageDownloader
         if let url = imageURL {
@@ -61,7 +61,7 @@ final class ProductTableViewCell: UITableViewCell {
             progressIndicator.stopAnimating()
         }
         nameLabel.text = name
-        priceLabel.text = price
+        descriptionLabel.text = description
     }
 
 }
@@ -78,7 +78,7 @@ private extension ProductTableViewCell {
 
     func setupSubviews() {
         [
-            productImageView, priceLabel,
+            productImageView, descriptionLabel,
             nameLabel, progressIndicator
         ].forEach {
             addSubview($0)
@@ -95,21 +95,19 @@ private extension ProductTableViewCell {
                 productImageView.widthAnchor.constraint(equalToConstant: CGFloat(ProductsListsViewConstants.imageWidth)),
                 productImageView.heightAnchor.constraint(equalToConstant: CGFloat(ProductsListsViewConstants.imageWidth)),
                 productImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-                nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 46),
-                nameLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 12),
+                nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+                nameLabel.leadingAnchor.constraint(equalTo: productImageView.trailingAnchor, constant: 16),
                 nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-                priceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-                priceLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -46),
-                priceLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)
+                descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+                descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+                descriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)
             ]
         )
     }
 
     func setupProperties() {
-        backgroundColor = .white
+        backgroundColor = .clear
         nameLabel.font = .boldSystemFont(ofSize: 17)
-        nameLabel.numberOfLines = 0
-        nameLabel.textColor = .appDarkBeige
         progressIndicator.startAnimating()
         selectionStyle = .none
     }
@@ -123,6 +121,8 @@ private extension ProductTableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = CGFloat(CGFloat(ProductsListsViewConstants.imageWidth) / CGFloat(3.5))
         return imageView
     }
 
@@ -130,6 +130,8 @@ private extension ProductTableViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .left
         return label
     }
 

@@ -106,10 +106,10 @@ private extension ProductDetailsView {
     }
 
     func setupProperties() {
-        backgroundColor = .white
+        backgroundColor = .appBeige
         nameLabel.font = .boldSystemFont(ofSize: 17)
         priceLabel.font = .boldSystemFont(ofSize: 17)
-        nameLabel.textColor = .appDarkBeige
+        nameLabel.textColor = .appLightBlack
         emptyCollectionLabel.text = Localizable.ProductDetail.noImageData
     }
 }

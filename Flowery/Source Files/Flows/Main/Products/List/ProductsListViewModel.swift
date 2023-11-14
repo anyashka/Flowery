@@ -71,7 +71,7 @@ final class DefaultProductsListViewModel: ProductsListViewModel {
 
     /// - SeeAlso: `ProductsListViewModel.imageURL`
     func imageURL(for product: Product) -> URL? {
-        guard let image = product.attributes.media.first else { return nil }
-        return URL(string: image.url)
+        let noImageFoundURL = "https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227724992-stock-illustration-image-available-icon-flat-vector.jpg"
+        return URL(string: product.image?.thumbnailURL ?? noImageFoundURL)
     }
 }

@@ -53,7 +53,7 @@ final class MainFlowCoordinator: FlowCoordinator {
     /// SeeAlso: FlowCoordinator.start()
     func start(animated: Bool) {
         log(message: "MainFlowCoordinator:start - flow started")
-        navigationController.navigationBar.setAppStyle()
+        UINavigationBar.setAppAppearance()
         showProductsListViewController()
     }
 }

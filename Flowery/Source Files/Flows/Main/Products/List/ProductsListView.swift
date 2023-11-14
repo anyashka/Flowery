@@ -79,7 +79,7 @@ private extension ProductsListsView {
         backgroundColor = .clear
         refreshControl.addTarget(self, action: #selector(refreshChanged), for: .valueChanged)
         tableView.refreshControl = refreshControl
-        progressIndicator.color = .appDarkGreen
+        progressIndicator.color = .appLightBlack
     }
 }
 
@@ -94,9 +94,9 @@ private extension ProductsListsView {
     static func makeProductsTableView() -> UITableView {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = 200
-        tableView.backgroundColor = .white
-        tableView.separatorStyle = .none
+        tableView.rowHeight = 140
+        tableView.backgroundColor = .appBeige
+        tableView.separatorStyle = .singleLine
         tableView.clipsToBounds = true
         tableView.separatorInset = .zero
         tableView.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.reuseIdentifier)

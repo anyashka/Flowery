@@ -43,16 +43,7 @@ final class ProductsListViewControllerTests: XCTestCase {
 
     func testShowDataWhenAPIReturns() {
         // given:
-        let fixtureAttributes = ProductAttributes(
-            name: "Flowers",
-            collectionName: "collection",
-            priceData: [PriceData(priceInPennies: 4800, priceInPenniesDiscounted: 4800)],
-            currencyCode: "GPB",
-            description: "Descibing",
-            media: [ProductMedia(url: "url")],
-            ratingAverage: nil,
-            ratingCount: nil)
-        let fixtureProducts = [Product(id: "1", attributes: fixtureAttributes)]
+        let fixtureProducts = [Product(id: "1", commonName: "name", scientificName: "abra", image: nil, watering: .none)]
 
         // when:
         sut.loadViewIfNeeded()
@@ -65,8 +56,7 @@ final class ProductsListViewControllerTests: XCTestCase {
             XCTFail("Should render product cells in table view")
             return
         }
-        XCTAssertEqual(cell.nameLabel.text, fixtureAttributes.name, "Should set user id from view model data")
-        XCTAssertEqual(cell.priceLabel.text, NumberFormatter.getAmountPriceText(for: fixtureProducts[0]), "Should set user id from view model data")
+        XCTAssertEqual(cell.nameLabel.text, fixtureProducts[0].commonName, "Should set user id from view model data")
     }
 
     func testShouldShowErrorAlertOnNetworkingError() {
