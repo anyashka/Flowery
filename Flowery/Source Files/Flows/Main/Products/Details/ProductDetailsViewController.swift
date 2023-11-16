@@ -33,9 +33,9 @@ final class ProductDetailsViewController: UIViewController {
         imageDownloader: ImageDownloader
     ) {
         customView = ProductDetailsView(
-            name: product.attributes.name,
-            description: product.attributes.description,
-            price: NumberFormatter.getAmountPriceText(for: product)
+            name: product.commonName,
+            description: product.scientificName,
+            price: "£" + String(Int.random(in: 1...89))
         )
         self.viewModel = viewModel
         self.product = product

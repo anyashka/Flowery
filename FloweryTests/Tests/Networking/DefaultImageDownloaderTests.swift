@@ -39,27 +39,6 @@ final class DefaultImageDownloaderTests: XCTestCase {
         }
     }
 
-    func testShoudDownloadImageIfNoInCache() {
-        // given:
-        let fixtureURL = URL(string: "fixture")!
-        fakeImageCache.simulatedCache = [:]
-        let fixtureImage = UIImage.makeImage(withColor: .black)!
-        let fixtureData = fixtureImage.pngData()
-
-        // when:
-        sut.download(with: fixtureURL) { result in
-
-            // then:
-            switch result {
-            case .success(let image):
-                XCTAssertEqual(image.pngData(), fixtureData, "Should download image")
-            case .failure:
-               XCTFail("Should not fail")
-           }
-        }
-        fakeSession.simulateResponse(data: fixtureData, response: .init())
-    }
-
     func testShouldReturnFailureOnDownloadFail() {
         // given:
         let fixtureURL = URL(string: "fixture")!

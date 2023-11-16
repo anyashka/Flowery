@@ -8,11 +8,15 @@ import UIKit
 extension UINavigationBar {
 
     /// Sets a default app style for the bar.
-    func setAppStyle() {
-        barTintColor = .appDarkGreen
-        tintColor = .appCream
-        titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.appCream
+    static func setAppAppearance() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundColor = .appDarkGreen
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.appBeige
         ]
+        UINavigationBar.appearance().tintColor = .appBeige
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
     }
 }

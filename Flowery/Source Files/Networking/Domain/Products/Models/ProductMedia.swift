@@ -8,9 +8,19 @@
 import Foundation
 
 struct ProductMedia: Equatable {
-    let url: String
-
-    // for the purpose of testing app it was assumed that all media types are images.
+    let thumbnailURL: String
+    let regularURL: String
 }
 
-extension ProductMedia: Decodable {}
+extension ProductMedia: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case thumbnail
+        case regular = "regular_url"
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        thumbnailURL = try container.decode(String.self, forKey: .thumbnail)
+        regularURL = try container.decode(String.self, forKey: .regular)
+    }
+}

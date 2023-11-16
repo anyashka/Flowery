@@ -24,8 +24,8 @@ final class DefaultProductDetailsViewModel: ProductDetailsViewModel {
 
     /// - SeeAlso: `ProductDetailsViewModel.getImagesURL`
     func getImagesURL(for product: Product) -> [URL] {
-        product.attributes.media.compactMap {
-            URL(string: $0.url)
-        }
+        // images are the same only differ in quality
+        // this is done just to showcase the carousel
+        [URL(string: product.image?.regularURL ?? ""), URL(string: product.image?.thumbnailURL ?? "")].compactMap { $0 }
     }
 }

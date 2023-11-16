@@ -31,7 +31,7 @@ final class DefaultDependencyProvider: DependencyProvider {
     /// A default initializer for dependency provider.
     init() {
         let networkSession = URLSession(configuration: .default)
-        let requestBuilder = DefaultRequestBuilder(scheme: .https, host: "api.bloomandwild.com")
+        let requestBuilder = DefaultRequestBuilder(scheme: .https, host: Constants.baseURL)
         let networkController = DefaultNetworkController(requestBuilder: requestBuilder, session: networkSession)
         productsNetworkController = DefaultProductsNetworkController(networkController: networkController)
         let imageCache = DefaultImageCache()

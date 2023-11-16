@@ -86,11 +86,22 @@ extension ProductsListViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.reuseIdentifier, for: indexPath) as! ProductTableViewCell
         let product = products[indexPath.row]
         let imageURL = viewModel.imageURL(for: product)
+        let watering: String
+        switch product.watering {
+        case .average:
+            watering = "🚰🚰"
+        case .frequent:
+            watering = "🚰🚰🚰"
+        case .minimum:
+            watering = "🚰"
+        case .none:
+            watering = ""
+        }
         cell.update(
             with: imageURL,
             imageDownloader: imageDownloader,
-            name: String(product.attributes.name),
-            price: NumberFormatter.getAmountPriceText(for: product)
+            name: product.commonName,
+            description: product.scientificName + "\n\n" + watering
         )
         return cell
     }

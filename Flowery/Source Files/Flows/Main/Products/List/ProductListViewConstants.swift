@@ -9,5 +9,5 @@ import Foundation
 enum ProductsListsViewConstants {
 
     /// A product image width to be shown.
-    static let imageWidth = 175
+    static let imageWidth = 120
 }
